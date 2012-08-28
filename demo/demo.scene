@@ -1,0 +1,65 @@
+Background (0,0,0)
+Size (1024,768)
+Surface s1 {
+	Ambient = 0.3
+	Diffuse = 0.4
+	Specular = 0.6
+	Shininess = 10
+	Reflection = 0.2
+	Transmit = 0.0
+	Color = (0.3,0.8,0.9)
+}
+
+Surface s2 {
+	Ambient = 0.3
+	Diffuse = 0.3
+	Specular = 0.7
+	Shininess = 100
+	Reflection = 0.4
+	Transmit = 0
+	Color = (0.9,0.2,0.4)
+}
+
+Surface s3 {
+	Ambient = 0.3
+	Diffuse = 0.1
+	Specular = 0.9
+	Shininess = 500
+	Reflection = 0.6
+	Transmit = 0
+	Color = (0.1,0.2,0.9)
+}
+
+Sphere sph1 {
+       Radius = 260
+       Center = (0,0,690)
+       Surface = s1
+}
+
+Sphere sph2 {
+       Radius = 130
+       Center = (250,230,260)
+       Surface = s2
+}
+
+Sphere sph3 {
+       Radius = 100
+       Center = (-250,-150,150)
+       Surface = s2
+}
+
+Sphere sph4 {
+       Radius = 80
+       Center = (320,-200,100)
+       Surface = s3
+}
+
+Light lght1 {
+      Position = (0,1000,0)
+      Intensity = 1
+}
+
+Light lght2 {
+      Position = (520,640,40)
+      Intensity = 0.7
+}

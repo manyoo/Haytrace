@@ -1,0 +1,70 @@
+			Haytrace
+
+1. About Haytrace
+
+Haytrace is a very simple raytracer implemented in Haskell. The current version
+of this software is not so much tuned, so it is a little slow. It supports Spheres
+only By now. But it can render very beautiful images. Haytrace embeds a very 
+simple descriptive language which you can use to describe a scene and run Haytrace 
+to render it.
+
+2. Usage
+
+Describe the scene you wanted in the language and save it in a file, then fire up
+Haytrace with the file specified and it will be rendered.
+
+2. Syntax and Semantic of the language
+
+There are five primitive directives you can use: Background, Size, Surface, Sphere 
+and Light. You can use them as many times as you like but the first two directives,
+Background and Size will be ignored except their first appearence.
+
+Background:
+      	Background (<Double>,<Double>,<Double>)
+specify the background color of the scene. the <Double> stands for floating numbers
+you can use. Remember, they range in [0,1].
+    Ex. Backgound (0.1,0.3,0.5)
+
+Size:
+	Size (<Int>,<Int>)
+specify the size(that is, width and height) of the result image. <Int> stands for 
+integers.
+    Ex. Size (1024,768)
+
+Surface:
+	Surface <name> {
+		Ambient = <Double>        // these all should be in [0,1]
+		Diffuse = <Double>
+		Specular = <Double>
+		Shininess = <Int>
+		Reflection = <Double>
+		Transmit = <Double>
+		Color = (<Double>,<Double>,<Double>)
+		}
+describe a surface, <name> is a string that you can use to refer to this surface. All
+the terms are optional, if you don't specify it, it will use the default value.
+
+Sphere:
+	Sphere <name> {
+	       Radius = <Double>                      // these can be any real
+	       Center = (<Double>,<Double>,<Double>)  // numbers
+	       Surface = <sname>
+	       }
+describe a sphere, <name> is a string for this sphere which is useless now. <sname> is
+the name of the surface you want to use for the sphere, it can be the names of surfaces
+you described in the file or use "defaultSurface" (without quote) for the default one.
+All the terms are optional, if you don't specify it, it will use the default value.
+
+Light: 
+       Light <name> {
+       	     Position = (<Double>,<Double>,<Double>)  // any real numbers
+	     Intensity = <Double>                     // intensity should be in [0,1]
+	     }
+describe a light source, <name> is a string for this light which is useless now.
+
+For demostrations of the language, check demo scene files in the demo directory.
+
+4. Author
+
+Haytrace is written by Eric Wong, if you have any feedbacks about this software
+contact me at wsysdu@gmail.com.
